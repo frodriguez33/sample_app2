@@ -10,7 +10,8 @@
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+      <strong>Last account activity: </strong> <%= cookies.signed[:login_time] %><br />
     </td>
   </tr>
 </table>

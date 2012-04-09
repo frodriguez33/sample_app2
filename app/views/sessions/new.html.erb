@@ -12,6 +12,10 @@
   <div class="actions">
     <%= f.submit "Sign in" %>
   </div>
+  <div class="field">
+    <%= f.label :remember_me %><br />
+    <%= f.check_box(:remember) %>
+  </div> 
 <% end %>
 
 <p>New user? <%= link_to "Sign up now!", signup_path %></p>
