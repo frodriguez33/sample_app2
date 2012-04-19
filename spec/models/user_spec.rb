@@ -8,9 +8,40 @@ describe User do
     :email => "user@example.com", 
     :password => "foobar",
     :password_confirmation => "foobar"  
+	# Homework Assignment 10 modification
+	:public_profile => "false"
     }
   end
 
+  ######################################
+  # Homework Assignment 10 modifications
+  # beginning
+  ######################################
+      it "can have a public profile" do
+		user_public_profile = User.new(@attr.merge(:public_profile => "true"))
+        user_public_profile.should be_valid
+	  end
+
+      it "can have a private profile" do
+		user_public_profile = User.new(@attr.merge(:public_profile => "false"))
+        user_public_profile.should_not be_valid
+      end
+
+	  it "can see public profiles" do
+
+        response.should be_success
+      end
+
+      it "can see list of public users" do
+
+        response.should be_success
+      end
+	  
+  ######################################
+  # Homework Assignment 10 modifications
+  # end
+  ######################################  
+  
   it "should create a new instance given valid attributes" do
     User.create!(@attr)
   end

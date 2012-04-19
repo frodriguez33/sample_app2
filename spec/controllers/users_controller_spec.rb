@@ -18,7 +18,8 @@ describe UsersController do
         get :index
         response.should redirect_to(signin_path)
         flash[:notice].should =~ /sign in/i
-      end
+      end	  
+
     end
 
     describe "for signed-in users" do
@@ -36,7 +37,7 @@ describe UsersController do
         end       
         
       end
-
+	  
       it "should be successful" do
         get :index
         response.should be_success
@@ -305,7 +306,37 @@ describe UsersController do
         put :update, :id => @user, :user => {}
         response.should redirect_to(signin_path)
       end
-    end
+
+	  ######################################
+	  # Homework Assignment 10 modifications
+	  # beginning
+	  ######################################
+      it "can have a public profile" do
+
+        response.should be_success
+      end
+
+      it "can have a private profile" do
+
+        response.should be_success
+      end
+
+	  it "can see public profiles" do
+
+        response.should be_success
+      end
+
+      it "can see list of public users" do
+
+        response.should be_success
+      end
+	  
+	  ######################################
+	  # Homework Assignment 10 modifications
+	  # end
+	  ######################################  
+
+	end
 
     describe "for signed-in users" do
 
@@ -323,7 +354,37 @@ describe UsersController do
         put :update, :id => @user, :user => {}
         response.should redirect_to(root_path)
       end
-    end
+
+	  ######################################
+	  # Homework Assignment 10 modifications
+	  # beginning
+	  ######################################
+      it "can have a public profile" do
+
+        response.should be_success
+      end
+
+      it "can have a private profile" do
+
+        response.should be_success
+      end
+
+	  it "can see all profiles" do
+
+        response.should be_success
+      end
+
+      it "can see list of all users" do
+
+        response.should be_success
+      end
+	  
+	  ######################################
+	  # Homework Assignment 10 modifications
+	  # end
+	  ######################################
+
+	end
 
   end
 
