@@ -44,6 +44,10 @@ module SessionsHelper
     clear_return_to
   end
 
+  def public
+
+  end
+  
   private
 
     def user_from_remember_token
