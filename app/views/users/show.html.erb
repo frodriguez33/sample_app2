@@ -1,18 +1,43 @@
-<%= @user.name %>, <%= @user.email %>
+<% if signed_in? %>
 
-<table class="profile" summary="Profile information">
-  <tr>
-    <td class="main">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </td>
-    <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
-      <strong>Last account activity: </strong> <%= cookies.signed[:login_time] %><br />
-    </td>
-  </tr>
-</table>
+  <%= @user.name %>, <%= @user.email %>
+  <table class="profile" summary="Profile information">
+    <tr>
+      <td class="main">
+        <h1>
+          <%= gravatar_for @user %>
+          <%= @user.name %>
+        </h1>
+      </td>
+      <td class="sidebar round">
+        <strong>Name</strong> <%= @user.name %><br />
+        <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+        <strong>Last account activity: </strong> <%= cookies.signed[:login_time] %><br />
+      </td>
+    </tr>
+  </table>
+  
+<% else %>	
 
+  <% if @user.profile_public %>
+
+    <%= @user.name %>, <%= @user.email %>
+    <table class="profile" summary="Profile information">
+      <tr>
+        <td class="main">
+          <h1>
+            <%= gravatar_for @user %>
+            <%= @user.name %>
+          </h1>
+        </td>
+        <td class="sidebar round">
+          <strong>Name</strong> <%= @user.name %><br />
+          <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+          <strong>Last account activity: </strong> <%= cookies.signed[:login_time] %><br />
+        </td>
+      </tr>
+    </table>  
+    
+  <% end %>
+
+<% end %>

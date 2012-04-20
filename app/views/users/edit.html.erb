@@ -18,6 +18,10 @@
     <%= f.label :password_confirmation, "Confirmation" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  <div class="field">
+    <%= f.label :public %><br />
+    <%= f.check_box :public_profile %>
+  </div>   
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

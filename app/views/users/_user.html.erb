@@ -1,11 +1,21 @@
-<li>
-  <%= gravatar_for user, :size => 30 %>
-  <%= link_to user.name, user %>
-  <% if current_user.admin? %>
-  | <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
+<% if signed_in? %>
+  <li>
+    <%= gravatar_for user, :size => 30 %>
+    <%= link_to user.name, user %>
+    <% if current_user.admin? %>
+    | <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
                                 :title => "Delete #{user.name}" %>
+    <% end %>
+  </li>	
+<% else %>	
+  <% if user.profile_public %>
+	<li>
+      <%= gravatar_for user, :size => 30 %>
+      <%= link_to user.name, user %>
+	</li>
   <% end %>
-</li>
+<% end %>
+
 
 
 
