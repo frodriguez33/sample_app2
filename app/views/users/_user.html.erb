@@ -8,7 +8,7 @@
     <% end %>
   </li>	
 <% else %>	
-  <% if user.profile_public %>
+  <% if user.public_profile %>
 	<li>
       <%= gravatar_for user, :size => 30 %>
       <%= link_to user.name, user %>

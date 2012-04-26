@@ -11,8 +11,8 @@
 
 class User < ActiveRecord::Base
 
-  attr_accessor :password, :profile_public
-  attr_accessible :name, :email, :password, :password_confirmation, :profile_public
+  attr_accessor :password
+  attr_accessible :name, :email, :password, :password_confirmation, :public_profile
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -32,13 +32,14 @@ class User < ActiveRecord::Base
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
+	
   end
   
   # Return true if the user's password matches the submitted password.
-  def is_profile_public(user)
+  def is_profile_public
 	return true  if user.profile_public?
 	return false 
- end
+  end
 
   def self.authenticate(email, submitted_password)
     user = find_by_email(email)

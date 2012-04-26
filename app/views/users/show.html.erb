@@ -19,7 +19,7 @@
   
 <% else %>	
 
-  <% if @user.profile_public %>
+  <% if @user.public_profile %>
 
     <%= @user.name %>, <%= @user.email %>
     <table class="profile" summary="Profile information">
